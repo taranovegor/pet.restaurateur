@@ -3,21 +3,32 @@ Platform for restaurant management automation
 
 ## Installation
 1. Make sure you have the following dependencies installed on your system:
-- PHP 8.4 or higher
-- Composer
-- PHP extensions: `iconv`, `xml`.
-
-2. Clone the repository:
+- docker, docker-compose
+2. Copy `.env` and configure environment variables in `.env.local` file
+3. Clone the repository:
 ```bash
-git clone https://github.com/taranovegor/pet.restaurateur.git
+git clone https://github.com/taranovegor/pet.restaurateur.git && \
 cd pet.restaurateur
 ```
-3. Install dependencies:
+4. Start the environment:
 ```bash
-composer install
+make up
 ```
-4. Copy `.env` and configure environment variables in `.env.local` file
-5. Run a local server (e.g. via Symfony CLI):
+
+## Development
+Run Composer utility:
+```bash
+./composer.sh
 ```
-symfony server:start
+Run Symfony console:
+```
+./console.sh
+```
+Run tests:
+```bash
+make tests-run
+```
+Run checkstyle:
+```bash
+make check-style
 ```

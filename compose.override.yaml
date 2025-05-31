@@ -1,0 +1,21 @@
+
+services:
+    app:
+        image: taranovegor/pet.restaurateur
+        build:
+            context: .
+            dockerfile: ./docker/app/Dockerfile
+            args:
+                - APP_UID=${APP_UID:-1000}
+                - APP_GID=${APP_GID:-1000}
+            target: development
+        ports:
+            - ${APP_EXPOSE_PORT:-8080}:8080
+        volumes:
+            - ./:/usr/src/app/:rw
+        extra_hosts:
+            - host.docker.internal:host-gateway
+
+    database:
+        ports:
+            - ${POSTGRES_EXPOSE_PORT:-5432}:5432
