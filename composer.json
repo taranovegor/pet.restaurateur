@@ -8,14 +8,36 @@
         "php": "^8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-pdo_pgsql": "*",
+        "baldinof/roadrunner-bundle": "^3.2",
+        "doctrine/dbal": "^3",
+        "doctrine/doctrine-bundle": "^2.14",
+        "doctrine/doctrine-migrations-bundle": "^3.4",
+        "doctrine/orm": "^3.3",
+        "nelmio/api-doc-bundle": "^5.3",
+        "symfony/asset": "7.3.*",
         "symfony/console": "7.3.*",
         "symfony/dotenv": "7.3.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.3.*",
+        "symfony/monolog-bundle": "^3.10",
         "symfony/runtime": "7.3.*",
-        "symfony/yaml": "7.3.*"
+        "symfony/twig-bundle": "7.3.*",
+        "symfony/yaml": "7.3.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "escapestudios/symfony2-coding-standard": "^3.15",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-symfony": "^2.0",
+        "phpunit/phpunit": "^12.1",
+        "spiral/roadrunner-cli": "^2.7",
+        "squizlabs/php_codesniffer": "^3.13",
+        "symfony/browser-kit": "7.3.*",
+        "symfony/css-selector": "7.3.*",
+        "symfony/stopwatch": "7.3.*",
+        "symfony/web-profiler-bundle": "7.3.*"
     },
     "config": {
         "allow-plugins": {
@@ -49,6 +71,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
+            "doctrine:migrations:migrate --allow-no-migration --no-interaction": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
