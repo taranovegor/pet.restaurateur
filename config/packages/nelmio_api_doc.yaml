@@ -4,6 +4,61 @@ nelmio_api_doc:
             title: '%app.name%'
             description: Platform for restaurant management automation
             version: latest
+        components:
+            schemas:
+                Error:
+                    type: object
+                    properties:
+                        type:
+                            type: string
+                            example: https://tools.ietf.org/html/rfc2616#section-10
+                        title:
+                            type: string
+                            example: "An error occurred"
+                        status:
+                            type: integer
+                            example: 418
+                        detail:
+                            type: string
+                            example: "something went wrong"
+                ValidationError:
+                    type: object
+                    properties:
+                        type:
+                            type: string
+                            example: "https://symfony.com/errors/validation"
+                        title:
+                            type: string
+                            example: "Validation Failed"
+                        status:
+                            type: integer
+                            example: 422
+                        detail:
+                            type: string
+                            example: "name: This value should not be blank."
+                        violations:
+                            type: array
+                            items:
+                                type: object
+                                properties:
+                                    propertyPath:
+                                        type: string
+                                        example: "name"
+                                    title:
+                                        type: string
+                                        example: "This value should not be blank."
+                                    template:
+                                        type: string
+                                        example: "This value should not be blank."
+                                    parameters:
+                                        type: object
+                                        properties:
+                                            "{{ value }}":
+                                                type: string
+                                                example: '""'
+                                    type:
+                                        type: string
+                                        example: "urn:uuid:c1051bb4-d103-4f74-8988-acbcafc7fdc3"
     areas:
         path_patterns:
             - ^/api(?!/doc$)
