@@ -9,4 +9,4 @@ while [ $# -gt 0 ]; do
     esac; shift
 done
 
-docker-compose exec --user $user -e XDEBUG_MODE=off app composer $command
+docker-compose exec --user $user -e XDEBUG_MODE=off app php -d memory_limit=-1 /usr/bin/composer $command

@@ -32,8 +32,8 @@ down: ## Stop environment
 	$(COMPOSE) down
 
 check-style: ## Check the application code style
-	$(EXEC_APP) vendor/bin/phpcs -v
-	$(EXEC_APP) vendor/bin/phpstan analyse -l1 -v
+	$(EXEC_APP) php -d memory_limit=-1 vendor/bin/phpcs -v
+	$(EXEC_APP) php -d memory_limit=-1 vendor/bin/phpstan analyse -l1 -v
 
 tests-run: ## Run application test cases
-	$(EXEC_APP) bin/phpunit tests
+	$(EXEC_APP) php -d memory_limit=-1 bin/phpunit tests
